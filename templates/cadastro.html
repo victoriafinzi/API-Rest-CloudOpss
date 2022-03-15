@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="../static/bootstrap.css">
+  </head>
+    <body>
+<div class="container" style="text-align: center;">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul id="messages" class="list-unstyled">
+                {% for message in messages %}
+                    <li class="alert alert-success">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+  <form style="width: 50vw; margin-left : 25vw;" action="{{ url_for('cadastrando') }}" method="post" enctype="multipart/form-data" >
+      <table border="5" cellpadding="5" cellspacing="5">
+      <tr> <td style="width: 50%">
+        <label for="nome"><b>Nome</b></label><br/>
+        <input name="nome" id="nome" type="text" maxlength="50" style="width:100%;max-width: 260px"/>
+      </td> <td style="width: 50%">
+        <label for="sobrenome"><b>Sobrenome</b></label><br/>
+        <input name="sobrenome" id="sobrenome" type="text" maxlength="50" style="width:100%;max-width: 260px"/>
+      </td> </tr> <tr> <td colspan="2">
+        <label for="email"><b>Email </b></label><br/>
+        <input name="email" id="email" type="text" maxlength="100" style="width:100%;max-width: 535px"/>
+      </td> </tr> <tr> <td colspan="2">
+        <label for="telefone"><b>Telefone</b></label><br/>
+        <input name="telefone" id="telefone" type="text" maxlength="255" style="width:100%;max-width: 535px" />
+      </td> </tr> <tr> <td colspan="2">
+        <hr/>
+        <label for="endereco"><b>Endereço</b></label><br/>
+        <input name="endereco" id="endereco" type="text" maxlength="100" style="width:100%;max-width: 535px" />
+      </td> </tr> <tr> <td>
+        <label for="cidade"><b>Cidade</b></label><br />
+        <input name="cidade" id="cidade" type="text" maxlength="50" style="width:100%;max-width: 250px"/> </td> <td>
+        <label for="estado"><b>Estado</b></label><br />
+        <input name="estado" id="estado" type="text" maxlength="50" style="width:100%;max-width: 250px" />
+      </td> </tr> <tr> <td>
+        <label for="numero"><b>Número</b></label><br />
+        <input name="numero" id="numero" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+      </td> <td>
+        <label for="complemento"><b>Complemento</b></label><br />
+        <input name="complemento" id="complemento" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+      </td> </tr> <tr> <td colspan="2">
+        <hr/>
+        <label for="profissao"><b>Profissão</b></label><br/>
+        <input name="profissao" id="profissao" type="text" maxlength="255" style="width:100%;max-width: 535px" />
+        </td> </tr> <tr> <td colspan="2"><br>
+        <label for="curriculo"><b>Currículo: </b></label>
+        <input type="file" id="curriculo" name="curriculo"/>
+      </td> </tr> <tr> <td colspan="2"> <br>
+        <input type="reset" value="Limpar">
+        <button type="submit" id="salvado" class="btn btn-primary btn-salvar">Salvar</button>
+          <a href="{{ url_for('lista_de_cadastrados') }}" class="btn btn-primary">Voltar</a>
+      </td> </tr>
+    </table>
+    </form>
+      </body>
+  </html>
