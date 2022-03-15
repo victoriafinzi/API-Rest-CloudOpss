@@ -46,4 +46,8 @@ def cadastrando():
 def lista_de_cadastrados():
     return render_template('lista.html', titulo='Lista de Cadastrados', cadastro=lista_cadastro)
 
+@app.route('/')
+def mandar_para_lista():
+    return redirect (url_for('lista_de_cadastrados'))
+
 app.run()
